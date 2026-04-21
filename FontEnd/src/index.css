@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BrewManager — Warm cozy café design system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Café palette */
+    --background: 36 56% 95%;            /* off-white #FAF3E8 */
+    --foreground: 24 50% 12%;            /* espresso #2C1A0E */
+
+    --cream: 38 76% 95%;                 /* #FDF6EC */
+    --cream-deep: 36 56% 90%;
+    --espresso: 24 50% 12%;              /* #2C1A0E */
+    --espresso-soft: 24 40% 20%;
+    --brown: 26 56% 27%;                 /* #6B3F1F */
+    --caramel: 30 60% 50%;               /* #C8853A */
+    --caramel-light: 30 70% 88%;
+    --sage: 125 17% 55%;                 /* #7A9E7E */
+
+    --card: 38 76% 97%;
+    --card-foreground: 24 50% 12%;
+
+    --popover: 38 76% 97%;
+    --popover-foreground: 24 50% 12%;
+
+    --primary: 30 60% 45%;               /* caramel brown */
+    --primary-foreground: 38 76% 97%;
+
+    --secondary: 36 40% 88%;
+    --secondary-foreground: 24 50% 12%;
+
+    --muted: 36 30% 90%;
+    --muted-foreground: 26 20% 38%;
+
+    --accent: 30 70% 88%;                /* caramel-light */
+    --accent-foreground: 26 56% 22%;
+
+    --destructive: 4 65% 48%;
+    --destructive-foreground: 38 76% 97%;
+
+    --success: 125 30% 42%;
+    --warning: 38 80% 50%;
+
+    --border: 32 30% 82%;
+    --input: 32 30% 85%;
+    --ring: 30 60% 45%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar — espresso dark */
+    --sidebar-background: 24 50% 12%;
+    --sidebar-foreground: 38 50% 88%;
+    --sidebar-primary: 30 60% 50%;
+    --sidebar-primary-foreground: 38 76% 97%;
+    --sidebar-accent: 24 40% 18%;
+    --sidebar-accent-foreground: 38 76% 95%;
+    --sidebar-border: 24 30% 22%;
+    --sidebar-ring: 30 60% 50%;
+
+    /* Gradients & shadows */
+    --gradient-warm: linear-gradient(135deg, hsl(38 76% 95%), hsl(36 56% 88%));
+    --gradient-caramel: linear-gradient(135deg, hsl(30 60% 50%), hsl(26 56% 35%));
+    --shadow-soft: 0 4px 20px -8px hsl(24 50% 12% / 0.15);
+    --shadow-warm: 0 10px 40px -12px hsl(26 56% 27% / 0.25);
+    --shadow-card: 0 2px 12px -4px hsl(24 50% 12% / 0.08);
+  }
+
+  .dark {
+    --background: 24 50% 8%;
+    --foreground: 38 50% 92%;
+    --card: 24 45% 12%;
+    --card-foreground: 38 50% 92%;
+    --popover: 24 45% 12%;
+    --popover-foreground: 38 50% 92%;
+    --primary: 30 65% 55%;
+    --primary-foreground: 24 50% 8%;
+    --secondary: 24 30% 18%;
+    --secondary-foreground: 38 50% 92%;
+    --muted: 24 30% 16%;
+    --muted-foreground: 36 20% 65%;
+    --accent: 26 40% 22%;
+    --accent-foreground: 38 50% 92%;
+    --destructive: 4 65% 48%;
+    --destructive-foreground: 38 50% 92%;
+    --border: 24 30% 20%;
+    --input: 24 30% 20%;
+    --ring: 30 65% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .bg-cream { background-color: hsl(var(--cream)); }
+  .bg-cream-deep { background-color: hsl(var(--cream-deep)); }
+  .bg-espresso { background-color: hsl(var(--espresso)); }
+  .bg-caramel { background-color: hsl(var(--caramel)); }
+  .text-espresso { color: hsl(var(--espresso)); }
+  .text-caramel { color: hsl(var(--caramel)); }
+  .text-brown { color: hsl(var(--brown)); }
+  .text-sage { color: hsl(var(--sage)); }
+  .border-cream-deep { border-color: hsl(var(--cream-deep)); }
+  .gradient-warm { background: var(--gradient-warm); }
+  .gradient-caramel { background: var(--gradient-caramel); }
+  .shadow-warm { box-shadow: var(--shadow-warm); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+}
