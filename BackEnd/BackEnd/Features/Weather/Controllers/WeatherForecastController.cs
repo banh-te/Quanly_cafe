@@ -1,6 +1,7 @@
+using BackEnd.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BackEnd.Controllers
+namespace BackEnd.Features.Weather.Controllers
 {
     [ApiController]
     [Route("[controller]")]

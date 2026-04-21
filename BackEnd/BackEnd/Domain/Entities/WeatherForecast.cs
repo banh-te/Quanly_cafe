@@ -1,4 +1,4 @@
-namespace BackEnd
+namespace BackEnd.Domain.Entities
 {
     public class WeatherForecast
     {
