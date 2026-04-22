@@ -1,0 +1,101 @@
+export type OrderStatus = "pending" | "preparing" | "done" | "cancelled";
+
+export interface OrderItem {
+  name: string;
+  qty: number;
+  price: number;
+}
+
+export interface Order {
+  id: string;
+  table: string;
+  items: OrderItem[];
+  total: number;
+  status: OrderStatus;
+  createdAt: string;
+  customer?: string;
+}
+
+export const mockOrders: Order[] = [
+  {
+    id: "DH-2041",
+    table: "Bàn 5",
+    items: [
+      { name: "Cappuccino", qty: 2, price: 45000 },
+      { name: "Croissant bơ", qty: 1, price: 32000 },
+    ],
+    total: 122000,
+    status: "pending",
+    createdAt: "10:24",
+  },
+  {
+    id: "DH-2040",
+    table: "Bàn 12",
+    items: [
+      { name: "Matcha đá xay", qty: 1, price: 55000 },
+      { name: "Bánh Tiramisu", qty: 1, price: 48000 },
+    ],
+    total: 103000,
+    status: "preparing",
+    createdAt: "10:18",
+  },
+  {
+    id: "DH-2039",
+    table: "Bàn 3",
+    items: [
+      { name: "Cà phê sữa đá", qty: 3, price: 35000 },
+    ],
+    total: 105000,
+    status: "preparing",
+    createdAt: "10:12",
+  },
+  {
+    id: "DH-2038",
+    table: "Bàn 8",
+    items: [
+      { name: "Trà đào cam sả", qty: 2, price: 45000 },
+      { name: "Cheesecake dâu", qty: 1, price: 45000 },
+    ],
+    total: 135000,
+    status: "done",
+    createdAt: "10:05",
+  },
+  {
+    id: "DH-2037",
+    table: "Bàn 1",
+    items: [
+      { name: "Espresso", qty: 1, price: 35000 },
+    ],
+    total: 35000,
+    status: "done",
+    createdAt: "09:58",
+  },
+  {
+    id: "DH-2036",
+    table: "Bàn 7",
+    items: [
+      { name: "Cookies & Cream", qty: 2, price: 55000 },
+    ],
+    total: 110000,
+    status: "cancelled",
+    createdAt: "09:42",
+  },
+  {
+    id: "DH-2035",
+    table: "Bàn 4",
+    items: [
+      { name: "Latte nghệ thuật", qty: 1, price: 49000 },
+      { name: "Croissant bơ", qty: 2, price: 32000 },
+    ],
+    total: 113000,
+    status: "done",
+    createdAt: "09:30",
+  },
+];
+
+export const statusMeta: Record<OrderStatus, { label: string; className: string }> = {
+  pending:    { label: "Chờ xác nhận", className: "bg-warning/15 text-warning border border-warning/30" },
+  preparing:  { label: "Đang pha chế", className: "bg-caramel/15 text-caramel border border-caramel/30" },
+  done:       { label: "Hoàn thành",   className: "bg-success/15 text-success border border-success/30" },
+  cancelled:  { label: "Đã hủy",       className: "bg-destructive/15 text-destructive border border-destructive/30" },
+};

@@ -1,0 +1,190 @@
+# ========================================
+# Line Ending Normalization
+# ========================================
+
+# Set default behavior to normalize line endings
+* text=auto eol=lf
+
+# Force LF for specific file types
+*.cs text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.config text eol=lf
+*.csproj text eol=lf
+*.sln text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+*.cmd text eol=lf
+*.bat text eol=lf
+
+# ========================================
+# Binary Files
+# ========================================
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.webp binary
+*.bmp binary
+*.tiff binary
+
+# Compiled files
+*.dll binary
+*.exe binary
+*.so binary
+*.dylib binary
+*.a binary
+*.lib binary
+*.obj binary
+*.o binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.rar binary
+*.7z binary
+*.bz2 binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# Documents
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# ========================================
+# Lock Files and Package Management
+# ========================================
+
+# Node.js lock files - treat as binary to prevent merge conflicts
+package-lock.json binary
+yarn.lock binary
+pnpm-lock.yaml binary
+
+# .NET lock files
+packages.lock.json binary
+project.lock.json binary
+
+# NuGet packages
+*.nupkg binary
+*.snupkg binary
+
+# ========================================
+# Development Files
+# ========================================
+
+# Source maps
+*.map binary
+
+# Certificate files
+*.pem binary
+*.key binary
+*.crt binary
+*.p12 binary
+*.pfx binary
+
+# Database files
+*.db binary
+*.sqlite binary
+*.sqlite3 binary
+
+# ========================================
+# Docker Files
+# ========================================
+
+# Docker files are text
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+docker-compose.yaml text eol=lf
+.dockerignore text eol=lf
+
+# ========================================
+# IDE and Editor Files
+# ========================================
+
+# VS Code
+*.code-workspace text eol=lf
+
+# Visual Studio
+*.vsix binary
+
+# ========================================
+# Git Files
+# ========================================
+
+# Git files should maintain their format
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.gitmodules text eol=lf
+
+# ========================================
+# Configuration Files
+# ========================================
+
+# ASP.NET Core configuration
+appsettings*.json text eol=lf
+web.config text eol=lf
+
+# Environment files
+.env text eol=lf
+.env.* text eol=lf
+
+# Build scripts
+*.ps1 text eol=lf
+*.sh text eol=lf
+*.cmd text eol=lf
+*.bat text eol=lf
+
+# ========================================
+# Documentation
+# ========================================
+
+# Documentation files
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# License files
+LICENSE text eol=lf
+LICENSE* text eol=lf
+COPYRIGHT text eol=lf
+
+# ========================================
+# Special Cases
+# ========================================
+
+# Windows specific files - keep as binary to avoid issues
+*.exe binary
+*.dll binary
+*.sys binary
+
+# macOS specific files
+*.DS_Store binary
+
+# Large generated files
+*.min.js binary
+*.min.css binary
