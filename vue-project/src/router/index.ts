@@ -1,0 +1,66 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../pages/Login.vue')
+    },
+    {
+      path: '/menu/:tableId',
+      name: 'customer-menu',
+      component: () => import('../pages/CustomerMenu.vue')
+    },
+    {
+      path: '/payment/:orderId',
+      name: 'payment',
+      component: () => import('../pages/Payment.vue')
+    },
+    {
+      path: '/kitchen',
+      name: 'kitchen',
+      component: () => import('../pages/Kitchen.vue')
+    },
+    {
+      path: '/',
+      component: () => import('../layouts/MainLayout.vue'),
+      meta: { requiresAuth: true },
+      children: [
+        { path: '', redirect: '/dashboard' },
+        { path: 'dashboard', name: 'dashboard', component: () => import('../pages/Dashboard.vue') },
+        { path: 'orders', name: 'orders', component: () => import('../pages/Orders.vue') },
+        { path: 'invoices', name: 'invoices', component: () => import('../pages/Invoices.vue') },
+        { path: 'menu-admin', name: 'menu-admin', component: () => import('../pages/MenuAdmin.vue') },
+        { path: 'categories', name: 'categories', component: () => import('../pages/Categories.vue') },
+        { path: 'tables', name: 'tables', component: () => import('../pages/Tables.vue') },
+        { path: 'inventory', name: 'inventory', component: () => import('../pages/Inventory.vue') },
+        { path: 'stocktake', name: 'stocktake', component: () => import('../pages/StockTake.vue') },
+        { path: 'recipes', name: 'recipes', component: () => import('../pages/Recipes.vue') },
+        { path: 'shifts', name: 'shifts', component: () => import('../pages/Shifts.vue') },
+        { path: 'staff', name: 'staff', component: () => import('../pages/Staff.vue') },
+        { path: 'settings', name: 'settings', component: () => import('../pages/Settings.vue') }
+      ]
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('../pages/NotFound.vue')
+    }
+  ]
+})
+
+// Global auth guard
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    next({ name: 'login' })
+  } else {
+    next()
+  }
+})
+
+export default router
